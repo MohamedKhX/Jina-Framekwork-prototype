@@ -1,0 +1,19 @@
+{
+  "name": "jina-framekwork",
+  "version": "1.0.0",
+  "description": "Simple framework for javascript",
+  "main": "index.js",
+  "scripts": {
+    "start": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohamedKhX/Jina-Framekwork.git"
+  },
+  "author": "MohamedKhalid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MohamedKhX/Jina-Framekwork/issues"
+  },
+  "homepage": "https://github.com/MohamedKhX/Jina-Framekwork#readme"
+}
