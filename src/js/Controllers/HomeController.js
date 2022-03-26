@@ -1,3 +1,6 @@
+import View from "../View.js";
+import welcomeView from "../Views/welcomeView.js";
+
 export default class HomeController
 {
     index() {
@@ -5,6 +8,6 @@ export default class HomeController
     }
 
     home() {
-        alert('Home method')
+        View.render(welcomeView, {name: 'Click me please'});
     }
 }

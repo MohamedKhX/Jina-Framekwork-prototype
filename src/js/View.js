@@ -1,7 +1,7 @@
 export default class View
 {
-    static render(view) {
+    static render(view, data = {}) {
         view = new view();
-        view.renderView();
+        view.renderView(data);
     }
 }

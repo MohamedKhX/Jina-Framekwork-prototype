@@ -18,13 +18,13 @@ function getObject(name) {
 }
 
 
-Router.register('', function () {
-    View.render(welcomeView);
+Router.register(HomeController, function (controller) {
+    controller.home();
 })
 
 Router.register(HomeController, function (controller) {
     getObject('btn').addEventListener('click', function () {
-        controller.home();
+        controller.index();
     })
 })
 

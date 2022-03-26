@@ -3,10 +3,10 @@ import {addObject} from "../EventHandler.js";
 
 export default class WelcomeView {
 
-    renderView() {
+    renderView(data = {}) {
 
         const btn = BtnComp.render(document.body, {
-            name: 'Hello There',
+            name: data.name,
             classList: ['btn', 'btn-green']
         });
 
