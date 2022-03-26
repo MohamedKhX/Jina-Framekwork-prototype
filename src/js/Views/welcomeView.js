@@ -10,8 +10,13 @@ export default class WelcomeView {
             classList: ['btn', 'btn-green']
         });
 
+        const viewBtn = BtnComp.render(document.body, {
+            name: 'Click to view the posts'
+        })
+
        this.handleEvents([
-           {name: 'btn', object: btn}
+           {name: 'btn', object: btn},
+           {name: 'viewBtn', object: viewBtn}
        ])
     }
 

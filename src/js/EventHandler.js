@@ -24,8 +24,13 @@ Router.register(HomeController, function (controller) {
 
 Router.register(HomeController, function (controller) {
     getObject('btn').addEventListener('click', function () {
-        controller.index();
+        controller.createPost();
+    })
+    getObject('viewBtn').addEventListener('click', function () {
+        controller.showResults();
     })
 })
+
+
 
 
