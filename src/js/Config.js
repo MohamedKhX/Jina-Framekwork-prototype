@@ -1,4 +1,8 @@
-export default class Config
+export default new class Config
 {
+    constructor() {
+        return {
 
+        }
+    }
 }

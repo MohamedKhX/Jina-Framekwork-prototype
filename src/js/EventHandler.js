@@ -2,6 +2,7 @@ import Router from "./Router.js";
 import HomeController from "./Controllers/HomeController.js";
 import View from './View.js'
 import welcomeView from './Views/welcomeView.js'
+import Config from "./Config.js";
 
 const objects = [
     {name: 'TR', object: {}}
