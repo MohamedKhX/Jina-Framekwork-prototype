@@ -28,6 +28,10 @@ Router.register(HomeController, function (controller) {
             title: getObject('form')[0].value,
             description: getObject('form')[1].value
         })
+    });
+
+    getObject('clearTableBtn').addEventListener('click', function () {
+        controller.clearPosts();
     })
 })
 

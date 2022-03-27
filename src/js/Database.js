@@ -7,12 +7,6 @@ export default class Database
 
     data = {};
 
-
-    /*
-    * todo 1: Check dataType
-    * todo 2: save database in localStorage
-    * */
-
     constructor() {
         this._getDataLocally();
     }
@@ -96,5 +90,18 @@ export default class Database
             fields.push(field)
         }
         return fields;
+    }
+
+    _deleteItem(item) {
+
+    }
+
+    _clearTable(table) {
+        this.data['posts'] = undefined;
+        this._saveDataLocally();
+    }
+
+    _clearDatabase() {
+        localStorage.clear();
     }
 }

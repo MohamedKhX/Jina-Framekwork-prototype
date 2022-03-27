@@ -32,4 +32,8 @@ export default class PostModel
 
         return database.data[this.tableName];
     }
+
+    clearPostsTable() {
+        database._clearTable(this.tableName);
+    }
 }
