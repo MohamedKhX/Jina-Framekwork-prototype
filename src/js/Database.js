@@ -14,7 +14,7 @@ export default class Database
     * */
 
     constructor() {
-        this.getDataLocally();
+        this._getDataLocally();
     }
 
     createNewField(table ,field, dataType) {
@@ -49,7 +49,7 @@ export default class Database
     }
 
 
-    getDataLocally() {
+    _getDataLocally() {
         const data = localStorage.getItem('data');
 
         if(!data) return
