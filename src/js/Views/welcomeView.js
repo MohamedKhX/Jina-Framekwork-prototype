@@ -1,23 +1,37 @@
 import BtnComp from '../Components/btnComp.js';
 import {addObject} from "../EventHandler.js";
+import PostComponent from "../Components/postComponent.js";
+import FormComp from "../Components/formComp.js";
 
 export default class WelcomeView {
 
     renderView(data = {}) {
 
-        const btn = BtnComp.render(document.body, {
-            name: data.name,
-            classList: ['btn', 'btn-green']
-        });
+        const form = FormComp.render(document.body, {});
 
-        const viewBtn = BtnComp.render(document.body, {
-            name: 'Click to view the posts'
+        this.handleEvents([
+            {name: 'form', object: form}
+        ])
+    }
+
+    renderPost(post) {
+        PostComponent.render(document.body, {
+            title: post.title,
+            description: post.description
         })
+    }
 
-       this.handleEvents([
-           {name: 'btn', object: btn},
-           {name: 'viewBtn', object: viewBtn}
-       ])
+    renderPosts(posts) {
+
+        posts = Object.values(posts);
+
+        posts.forEach(function (post) {
+            console.log(post)
+            PostComponent.render(document.body, {
+                title: post.title,
+                description: post.description
+            })
+        })
     }
 
     handleEvents(objects = []) {

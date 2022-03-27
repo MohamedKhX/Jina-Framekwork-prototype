@@ -13,6 +13,10 @@ export default class Database
     * todo 2: save database in localStorage
     * */
 
+    constructor() {
+        this.getDataLocally();
+    }
+
     createNewField(table ,field, dataType) {
         if(!this._checkIfTableFound(table)) throw new Error(`Table ${table} is not found in database`);
         if(!this._checkIfDataTypeFound(dataType)) throw new Error(`database Cant handle this dataType {${dataType}}`)
@@ -35,9 +39,24 @@ export default class Database
             newData[field] = data[field];
         }
 
+        this._saveDataLocally();
         return newData;
     }
 
+    _saveDataLocally() {
+        const data = JSON.stringify(this.data)
+        localStorage.setItem('data', data);
+    }
+
+
+    getDataLocally() {
+        const data = localStorage.getItem('data');
+
+        if(!data) return
+
+        this.data = JSON.parse(data);
+
+    }
 
     _insertDataTable(table) {
         this.data[table] = {}

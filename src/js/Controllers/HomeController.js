@@ -3,21 +3,22 @@ import welcomeView from "../Views/welcomeView.js";
 import PostModel from "../Models/PostModel.js"
 export default class HomeController
 {
-    index() {
-        alert('Index method')
-    }
+
+    view;
 
     home() {
-        View.render(welcomeView, {name: 'Click me please'});
+       this.view = View.render(welcomeView);
+       this.renderPosts();
     }
 
-    createPost() {
-        const post = new PostModel('How to do', 'there is a lot of things in the world');
+    createPost(data) {
+        const post = new PostModel(data.title, data.description);
         post.save();
+        this.view.renderPost(post);
     }
 
-    showResults() {
+    renderPosts() {
         const post = new PostModel();
-        post.getData();
+        this.view.renderPosts(post.getData());
     }
 }

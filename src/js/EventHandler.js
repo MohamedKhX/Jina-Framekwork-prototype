@@ -18,16 +18,16 @@ function getObject(name) {
 }
 
 
-Router.register(HomeController, function (controller) {
-    controller.home();
-})
 
 Router.register(HomeController, function (controller) {
-    getObject('btn').addEventListener('click', function () {
-        controller.createPost();
-    })
-    getObject('viewBtn').addEventListener('click', function () {
-        controller.showResults();
+    controller.home();
+
+    getObject('form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        controller.createPost({
+            title: getObject('form')[0].value,
+            description: getObject('form')[1].value
+        })
     })
 })
 

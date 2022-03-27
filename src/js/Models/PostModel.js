@@ -1,41 +1,35 @@
 import {database} from "../migrations.js";
 export default class PostModel
 {
-    //first but all properties that you want to handle
+    //properties
     title;
     description;
 
-    constructor(title, description) {
+
+    tableName = 'posts';
+
+    constructor(title = '', description = '') {
         this.title = title;
         this.description = description;
     }
 
 
-    validateData() {
-        //just validate the data as you want before they go to the database
-        //use the old validator
-        return true;
-    }
-
+    validateData() {}
 
     save() {
-/*
-        if(!this.validateData()) return;
-*/
         this.postData()
     }
 
     postData() {
-        database.insert('posts', {
+        database.insert(this.tableName, {
             title: this.title,
             description: this.description
         })
     }
 
     getData() {
-       //you need to create more methods
-       //one for get single post
-       //second get more then post
-        console.log(database.data)
+        if(!database.data[this.tableName]) return {}
+
+        return database.data[this.tableName];
     }
 }
