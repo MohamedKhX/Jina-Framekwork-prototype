@@ -7,6 +7,8 @@ export default class Database
 
     data = {};
 
+    lastId;
+
     constructor() {
         this._getDataLocally();
     }
@@ -35,6 +37,10 @@ export default class Database
 
         this._saveDataLocally();
         return newData;
+    }
+
+    getLastId() {
+        return this.lastId;
     }
 
     _saveDataLocally() {
@@ -79,9 +85,19 @@ export default class Database
             ids.push(id)
         }
 
-        if(ids.length === 0) return 1;
+        let id = null;
 
-        return Math.max(...ids) + 1;
+        if(ids.length === 0)
+        {
+            id = 1;
+            return id;
+        }
+
+        id = Math.max(...ids) + 1;
+
+        this.lastId = id;
+
+        return id;
     }
 
     _getTableFields(table) {
@@ -92,8 +108,9 @@ export default class Database
         return fields;
     }
 
-    _deleteItem(item) {
-
+    _deleteItem(table, item) {
+        this.data[table][item] = undefined;
+        this._saveDataLocally();
     }
 
     _clearTable(table) {

@@ -15,7 +15,7 @@ export default class HomeController
     createPost(data) {
         const post = new PostModel(data.title, data.description);
         post.save();
-        this.view.renderPost(post);
+        this.view.renderPost(post, post.id);
     }
 
     renderPosts() {
@@ -26,5 +26,10 @@ export default class HomeController
    clearPosts() {
         this.view.unRenderPosts();
         new PostModel().clearPostsTable();
+   }
+
+   deletePost(id) {
+        this.view.unRenderPost(id);
+        new PostModel().deleteItem(id);
    }
 }

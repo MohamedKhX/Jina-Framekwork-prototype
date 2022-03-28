@@ -33,6 +33,11 @@ Router.register(HomeController, function (controller) {
     getObject('clearTableBtn').addEventListener('click', function () {
         controller.clearPosts();
     })
+
+    getObject('deleteSinglePost').addEventListener('click', function(e) {
+        if(e.target.dataset.id)
+            controller.deletePost(e.target.dataset.id)
+    })
 })
 
 

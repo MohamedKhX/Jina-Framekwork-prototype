@@ -6,7 +6,7 @@ export default class PostComponent extends Component
 
     static generateMarkup(data) {
         this.component = document.createElement('div');
-        this.component.innerHTML = this.generateTemplete(data);
+        this.component.innerHTML = this.generateTemplate(data);
 
         if(data.classList)
             this.classList(data.classList);
@@ -14,10 +14,11 @@ export default class PostComponent extends Component
         return this.component;
     }
 
-    static generateTemplete(data) {
+    static generateTemplate(data) {
         return `
             <h1>${data.title}</h1>
             <p>${data.description}</p>
+            <button class="btn" data-id="${data.id}">Delete</button>
         `
     }
 
